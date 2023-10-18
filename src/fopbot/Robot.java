@@ -13,7 +13,7 @@ public class Robot extends FieldEntity {
 	/**
 	 * Creates and spawns a new robot at field (x,y) in the world Default direction:
 	 * NORTH ; numberOfCoins = 0
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 */
@@ -29,7 +29,7 @@ public class Robot extends FieldEntity {
 
 	/**
 	 * Creates and spawns a new robot at field (x,y) in the world
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 * @param direction
@@ -50,7 +50,7 @@ public class Robot extends FieldEntity {
 
 	/**
 	 * Creates and spawns a new robot at field (x,y) in the given world
-	 * 
+	 *
 	 * @param world
 	 * @param x
 	 * @param y
@@ -67,7 +67,7 @@ public class Robot extends FieldEntity {
 
 	/**
 	 * Creates and spawns a new robot at field (x,y) in the given world
-	 * 
+	 *
 	 * @param world
 	 * @param x
 	 * @param y
@@ -89,7 +89,7 @@ public class Robot extends FieldEntity {
 
 	/**
 	 * Copy constructor
-	 * 
+	 *
 	 * @param copy
 	 * @param x
 	 * @param y
@@ -110,19 +110,53 @@ public class Robot extends FieldEntity {
 			return;
 		}
 
-		switch (direction) {
-		case UP:
-			direction = Direction.LEFT;
-			break;
-		case LEFT:
-			direction = Direction.DOWN;
-			break;
-		case DOWN:
-			direction = Direction.RIGHT;
-			break;
-		case RIGHT:
-			direction = Direction.UP;
-			break;
+		direction = Direction.LEFT;
+
+		}
+		if (printTrace) {
+			printTrace();
+		}
+		world.triggerUpdate();
+		world.sleep();
+	}
+    
+	public void turnRight() {
+		if (off) {
+			return;
+		}
+
+		direction = Direction.RIGHT;
+
+		}
+		if (printTrace) {
+			printTrace();
+		}
+		world.triggerUpdate();
+		world.sleep();
+	}
+
+	public void turnUp() {
+		if (off) {
+			return;
+		}
+
+		direction = Direction.UP;
+
+		}
+		if (printTrace) {
+			printTrace();
+		}
+		world.triggerUpdate();
+		world.sleep();
+	}
+
+	public void turnDown() {
+		if (off) {
+			return;
+		}
+
+		direction = Direction.DOWN;
+
 		}
 		if (printTrace) {
 			printTrace();
@@ -268,7 +302,7 @@ public class Robot extends FieldEntity {
 	/**
 	 * enables/disables printing a trace to System.out after each action of the
 	 * robot
-	 * 
+	 *
 	 * @param printTrace
 	 */
 	public void setPrintTrace(boolean printTrace) {
@@ -322,7 +356,7 @@ public class Robot extends FieldEntity {
 
 	/**
 	 * Sets the id of the robot
-	 * 
+	 *
 	 * @param id
 	 */
 	protected void setId(String id) {
@@ -338,7 +372,7 @@ public class Robot extends FieldEntity {
 
 	/**
 	 * Sets the image id of the robot
-	 * 
+	 *
 	 * @param id
 	 */
 	protected void setImageId(String id) {
